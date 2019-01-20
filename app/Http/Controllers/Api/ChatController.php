@@ -34,7 +34,7 @@ class ChatController extends Controller
         try {
             $payload = $request->isJson() ? $request->json()->all() : [];
             $rules = [
-                'take' => 'required|integer|max:10',
+                'take' => 'required|integer|max:2',
                 'skip' => 'required|integer|max:10',
                 'desc' => 'required|boolean',
             ];
