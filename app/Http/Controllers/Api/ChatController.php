@@ -23,7 +23,7 @@ class ChatController extends Controller
             $message = new Message;
             $message->text = $payload['messageText'];
             $message->save();
-            return $this->success('Message has been saved!');
+            return $this->success('Message sent!');
         } catch (\Exception $e) {
             return $this->failure();
         }
@@ -51,7 +51,7 @@ class ChatController extends Controller
             } else {
                 $messages = Message::select('text as messageText', 'created_at as timeDelivered')->take($limit)->skip($offset)->get();
             }
-            return $this->success('Messages has been taken!', $messages);
+            return $this->success('Messages successfully taken!', $messages);
         } catch (\Exception $e) {
             return $this->failure();
         }
