@@ -18,7 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 */
-Route::group('api', function () {
+
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function() {
     Route::post('send-message', 'ChatController@sendMessage');
     Route::post('get-messages', 'ChatController@getMessages');
 });
