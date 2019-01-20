@@ -33,4 +33,37 @@ $   cp .env.example .env
 
 ```
 
-After that, 
+After that, generate APP_KEY with key generator artisan command.
+
+``` shell
+
+$   php artisan key:generate
+
+```
+
+Before you run database migrations, you must add a database to your MySQL Server. In my case, i will add and use database named `test`. If you use `test`, make sure you don't have database named `test`. You can make your own database configuration in `.env` file in variables whose prefix are `DB_`.
+
+``` shell
+
+$   mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+```
+
+After that, you can run database migration.
+
+``` shell
+
+$   php artisan migrate
+
+```
+
+Setting your environment for APP_URL variable with your own url and for other environment variables in `.env` file.
+
+Finally, you can access the API in your server/computer from other devices.
+
+## List of API
+
+This is the list of API. For API details, you can visit this wiki repo.
+
+*   [HTTP POST] {url}/api/send-message
+*   [HTTP POST] {url}/api/get-messages
