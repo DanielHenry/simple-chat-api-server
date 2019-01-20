@@ -36,6 +36,7 @@ class ChatController extends Controller
             $rules = [
                 'take' => 'integer|max:10',
                 'skip' => 'integer|max:10',
+                'desc' => 'boolean',
             ];
             $validation = $this->customValidation($payload, $rules);
             if ($validation !== TRUE) {
@@ -44,7 +45,12 @@ class ChatController extends Controller
             }
             $limit = (isset($payload['take']) && $payload['take'] >= 0) ? intval($payload['take']) : 10;
             $offset = ($payload['skip'] && $payload['skip'] >= 0) ? intval($payload['skip']) : 0;
-            $messages = Message::orderBy('id', 'desc')->take($limit)->skip($offset)->get();
+            $isDesc = isset($payload['desc']) ? $payload['desc'] : FALSE;
+            if ($isDesc) {
+                $messages = Message::orderBy('id', 'desc')->take($limit)->skip($offset)->get();
+            } else {
+                $messages = Message::take($limit)->skip($offset)->get();
+            }
             return $this->success('Messages has been taken!', $messages);
         } catch (\Exception $e) {
             return $this->failure();
