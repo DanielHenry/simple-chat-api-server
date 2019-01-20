@@ -59,6 +59,16 @@ $   php artisan migrate
 
 Setting your environment for APP_URL variable with your own url and for other environment variables in `.env` file.
 
+You can run this project from `php artisan serve` command and bind port 80,
+
+``` shell
+
+$   php artisan serve
+
+```
+
+or run it by http server like Apache or Nginx.
+
 Finally, you can access the API in your server/computer from other devices.
 
 ## List of API
