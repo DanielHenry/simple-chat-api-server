@@ -63,7 +63,7 @@ Finally, you can access the API in your server/computer from other devices.
 
 ## List of API
 
-This is the list of API. For API details, you can visit this wiki repo.
+This is the list of API. For API details, you can visit this repo's [wiki](https://github.com/DanielHenry/simple-chat-api-server/wiki).
 
 *   [HTTP POST] {url}/api/send-message
 *   [HTTP POST] {url}/api/get-messages
