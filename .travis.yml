@@ -3,12 +3,16 @@ language: php
 php:
 - 7.1
 
+services:
+  - mysql:5.7
+
 before_script:
   - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan config:clear
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 script:
 - vendor/bin/phpunit
