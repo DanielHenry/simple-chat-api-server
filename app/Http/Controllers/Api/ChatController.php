@@ -34,18 +34,18 @@ class ChatController extends Controller
         try {
             $payload = $request->isJson() ? $request->json()->all() : [];
             $rules = [
-                'take' => 'integer|max:10',
-                'skip' => 'integer|max:10',
-                'desc' => 'boolean',
+                'take' => 'required|integer|max:10',
+                'skip' => 'required|integer|max:10',
+                'desc' => 'required|boolean',
             ];
             $validation = $this->customValidation($payload, $rules);
             if ($validation !== TRUE) {
                 $response = $validation;
                 return $response;
             }
-            $limit = (isset($payload['take']) && $payload['take'] >= 0) ? intval($payload['take']) : 10;
-            $offset = ($payload['skip'] && $payload['skip'] >= 0) ? intval($payload['skip']) : 0;
-            $isDesc = isset($payload['desc']) ? $payload['desc'] : FALSE;
+            $limit = ($payload['take'] >= 0) ? intval($payload['take']) : 10;
+            $offset = ($payload['skip'] >= 0) ? intval($payload['skip']) : 0;
+            $isDesc = $payload['desc'];
             if ($isDesc) {
                 $messages = Message::orderBy('id', 'desc')->take($limit)->skip($offset)->get();
             } else {
