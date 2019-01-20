@@ -10,4 +10,5 @@ class Message extends Model
     protected $fillable = [
     	'text'
     ];
+    public $timestamps = true;
 }
