@@ -77,3 +77,4 @@ This is the list of API. For API details, you can visit this repo's [wiki](https
 
 *   [HTTP POST] {url}/api/send-message
 *   [HTTP POST] {url}/api/get-messages
+*   [WebSocket] {Socket.io server URL}/apps/your-app-id/events?auth_key={authkey}
