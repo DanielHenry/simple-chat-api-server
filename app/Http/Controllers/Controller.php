@@ -14,9 +14,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, ApiResponder;
 
-    protected function customValidation(Request $request, $rules = [], $messages = [])
+    protected function customValidation($payload = [], $rules = [], $messages = [])
     {
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator = Validator::make($payload, $rules, $messages);
         if ($validator->fails()) {
             return $this->invalidParameters($validator->errors()->all());
         } else {
@@ -24,9 +24,9 @@ class Controller extends BaseController
         }
     }
 
-    protected function guardWithValidation(Request $request, $rules = [], $messages = [], $callback)
+    protected function guardWithValidation($payload = [], $rules = [], $messages = [], $callback)
     {
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator = Validator::make($payload, $rules, $messages);
         if ($validator->fails()) {
             return $this->invalidParameters($validator->errors()->all());
         } else {
