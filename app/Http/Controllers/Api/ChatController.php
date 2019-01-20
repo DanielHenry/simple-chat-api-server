@@ -47,9 +47,9 @@ class ChatController extends Controller
             $offset = ($payload['skip'] >= 0) ? intval($payload['skip']) : 0;
             $isDesc = $payload['desc'];
             if ($isDesc) {
-                $messages = Message::select('text as messageText', 'delivered_at as timeDelivered')->orderBy('id', 'desc')->take($limit)->skip($offset)->get();
+                $messages = Message::select('text as messageText', 'created_at as timeDelivered')->orderBy('id', 'desc')->take($limit)->skip($offset)->get();
             } else {
-                $messages = Message::select('text as messageText', 'delivered_at as timeDelivered')->take($limit)->skip($offset)->get();
+                $messages = Message::select('text as messageText', 'created_at as timeDelivered')->take($limit)->skip($offset)->get();
             }
             return $this->success('Messages has been taken!', $messages);
         } catch (\Exception $e) {
