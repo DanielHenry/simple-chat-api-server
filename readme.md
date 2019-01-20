@@ -1,5 +1,7 @@
 # Simple Chat API Server
 
+[![PHP](https://img.shields.io/badge/php-7.1.16-blue.svg?style=flat-square)](http://php.net/releases/7_1_16.php)
+[![PHP](https://img.shields.io/badge/laravel-5.4-blue.svg?style=flat-square)](https://laravel.com/docs/5.4/releases)
 [![Build Status](https://travis-ci.org/DanielHenry/simple-chat-api-server.svg?branch=master)](https://travis-ci.org/DanielHenry/simple-chat-api-server)
 
 Laravel server and Laravel Echo Server to deliver chat API.
@@ -8,7 +10,7 @@ Laravel server and Laravel Echo Server to deliver chat API.
 
 The following are required to function properly.
 
-*   PHP 7.1.*
+*   PHP 7.1.16
 *   Composer 1.5.1
 *   Laravel 5.4
 *   MySQL 5.7
